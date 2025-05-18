@@ -1,0 +1,62 @@
+{
+  "name": "discount-bandit",
+  "id": "discount-bandit",
+  "available": true,
+  "short_desc": "Self hosted price tracker",
+  "author": "Cybrarist",
+  "port": 8382,
+  "categories": ["utilities"],
+  "description": "Track products pricing across multi ecommerce stores such as amazon,ebay,walmart, target and many more. ",
+  "tipi_version": 2,
+  "version": "v3.6",
+  "source": "https://github.com/Cybrarist/Discount-Bandit/",
+  "exposable": true,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Optional Ntfy Channel ID",
+      "env_variable": "NTFY_CHANNEL_ID"
+    },
+    {
+      "type": "text",
+      "label": "Optional Telegram BOT Token",
+      "env_variable": "TELEGRAM_BOT_TOKEN"
+    },
+    {
+      "type": "text",
+      "label": "Optional Telegram Channel ID",
+      "env_variable": "TELEGRAM_CHANNEL_ID"
+    },
+    {
+      "type": "text",
+      "label": "Default Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "DEFAULT_USER"
+    },
+    {
+      "type": "password",
+      "label": "Default User Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "DEFAULT_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Default User Email",
+      "required": true,
+      "env_variable": "DEFAULT_EMAIL"
+    },
+    {
+      "type": "text",
+      "label": "Optional Apprise URL",
+      "env_variable": "APPRISE_URL"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1745082405284,
+  "updated_at": 1745674974072,
+  "dynamic_config": true
+}

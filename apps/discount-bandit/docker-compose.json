@@ -1,0 +1,42 @@
+{
+  "services": [
+    {
+      "name": "discount-bandit",
+      "image": "cybrarist/discount-bandit:latest",
+      "internalPort": 80,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/database/database.sqlite",
+          "containerPath": "/app/database/database.sqlite"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/logs",
+          "containerPath": "/logs"
+        }
+      ],
+      "environment": {
+        "DB_CONNECTION": "sqlite",
+        "NTFY_CHANNEL_ID": "${NTFY_CHANNEL_ID}",
+        "NTFY_BASE_URL": "https://ntfy.sh",
+        "TELEGRAM_BOT_TOKEN": "${TELEGRAM_BOT_TOKEN}",
+        "TELEGRAM_CHANNEL_ID": "${TELEGRAM_CHANNEL_ID}",
+        "DEFAULT_USER": "${DEFAULT_USER}",
+        "DEFAULT_EMAIL": "${DEFAULT_EMAIL}",
+        "DEFAULT_PASSWORD": "${DEFAULT_PASSWORD}",
+        "APPRISE_URL": "${APPRISE_URL}",
+        "APP_TIMEZONE": "${TZ}",
+        "RSS_FEED": "1",
+        "TOP_NAVIGATION": "0",
+        "DISABLE_TOP_BAR": "0",
+        "BREADCRUMBS": "1",
+        "SPA": "1",
+        "DISABLE_AUTH": "1",
+        "THEME_COLOR": "Stone",
+        "APP_URL": "http://localhost:8080",
+        "ASSET_URL": "http://localhost:8080",
+        "TZ": "${TZ}"
+      }
+    }
+  ]
+}

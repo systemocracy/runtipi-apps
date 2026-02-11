@@ -99,14 +99,5 @@
         }
       }
     }
-  ],
-  "volumes": [
-    {
-      "soulsync_database": [
-       { 
-         "driver": "local"
-       }
-      ]
-    }
   ]
 }

@@ -102,9 +102,11 @@
   ],
   "volumes": [
     {
-      "soulsync_database": {
-        "driver": "local"
-      }
+      "soulsync_database": [
+       { 
+         "driver": "local"
+       }
+      ]
     }
   ]
 }

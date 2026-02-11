@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "soulsync-webui",
+      "image": "boulderbadgedad/soulsync:latest",
+      "environment": [
+        {
+          "key": "FLASK_ENV",
+          "value": "production"
+        },
+        {
+          "key": "PYTHONPATH",
+          "value": "/app"
+        },
+        {
+          "key": "SOULSYNC_CONFIG_PATH",
+          "value": "/app/config/config.json"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
+      "internalPort": 8008,
+      "addPorts": [
+        {
+          "containerPort": 8888,
+          "hostPort": 8888,
+          "tcp": true,
+          "udp": false
+        },
+        {
+          "containerPort": 8889,
+          "hostPort": 8889,
+          "tcp": true,
+          "udp": false
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/config",
+          "containerPath": "/app/config",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/logs",
+          "containerPath": "/app/logs",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/downloads/complete",
+          "containerPath": "/app/downloads",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/music",
+          "containerPath": "/app/Transfer",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "soulsync_database",
+          "containerPath": "/app/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "extraHosts": [
+        "host.docker.internal:host-gateway"
+      ],
+      "healthCheck": {
+        "test": "CMD curl -f http://localhost:8888/",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3,
+        "startPeriod": "60s"
+      },
+      "deploy": {
+        "resources": {
+          "limits": {
+            "cpus": "2.0",
+            "memory": "2G"
+          },
+          "reservations": {
+            "cpus": "0.5",
+            "memory": "512M",
+            "devices": []
+          }
+        }
+      }
+    }
+  ],
+  "volumes": [
+    {
+      "soulsync_database": {
+        "driver": "local"
+      }
+    }
+  ]
+}

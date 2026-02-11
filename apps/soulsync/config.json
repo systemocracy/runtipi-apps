@@ -1,0 +1,21 @@
+{
+  "name": "SoulSync",
+  "min_tipi_version": "4.5.0",
+  "available": true,
+  "port": 8008,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "soulsync",
+  "description": "Intelligent Music Discovery & Automation Platform",
+  "tipi_version": 1,
+  "version": "1.6",
+  "categories": ["media", "music", "utilities"],
+  "short_desc": "Intelligent Music Discovery & Automation Platform",
+  "author": "Nezreka: Broque Thomas",
+  "source": "https://github.com/Nezreka/SoulSync",
+  "website": "https://github.com/Nezreka/SoulSync",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1770769637956,
+  "updated_at": 1770769637956
+}
